@@ -103,10 +103,10 @@ public class BankAccount {
 
     public void performMonthlyMaintenance() {
         double earnedInterest = interestRate/12 * balance;
-        double currentBalance = earnedInterest + balance;
-        currentBalance -= maintenanceFee;
-        double newBalance = currentBalance;
-        inTheRed = currentBalance < minBalance;
+        balance += earnedInterest;
+        balance -= maintenanceFee;
+        double newBalance = balance;
+        inTheRed = balance < minBalance;
 
         if (inTheRed) {
             System.out.println("WARNING: This account is in the red");
